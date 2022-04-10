@@ -1,0 +1,343 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "inzamam malik",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "nameIntent",
+          "slots": [],
+          "samples": [
+            "your good name please",
+            "can I have your name",
+            "what is your name"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "workExperiance",
+          "slots": [],
+          "samples": [
+            "tell me about your working experience ",
+            "how much experience do you have",
+            "what do you do",
+            "how long are you in chatbots",
+            "what is your working experience "
+          ]
+        },
+        {
+          "name": "weatherIntent",
+          "slots": [
+            {
+              "name": "cityName",
+              "type": "AMAZON.City",
+              "samples": [
+                "{cityName}",
+                "give me weather of {cityName}",
+                "I live in {cityName}",
+                "my city name is {cityName}"
+              ]
+            }
+          ],
+          "samples": [
+            "what\u0027s the temprature in {cityName}",
+            "weather updates for {cityName}",
+            "what\u0027s the weather of {cityName}",
+            "what\u0027s the temperature ",
+            "weather update",
+            "what\u0027s the weather"
+          ]
+        },
+        {
+          "name": "bookRoom",
+          "slots": [
+            {
+              "name": "numberOfPeople",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "I want to book for {numberOfPeople}",
+                "{numberOfPeople}",
+                "for {numberOfPeople} person",
+                "we are {numberOfPeople} people"
+              ]
+            },
+            {
+              "name": "roomType",
+              "type": "roomTypes",
+              "samples": [
+                "{roomType} suite",
+                "{roomType} room",
+                "{roomType}",
+                "give me a {roomType} room",
+                "Please book me {roomType} room",
+                "I want {roomType} room"
+              ]
+            },
+            {
+              "name": "arrivalDate",
+              "type": "AMAZON.DATE",
+              "samples": [
+                "my checkin date is {arrivalDate}",
+                "{arrivalDate}",
+                "I will be there {arrivalDate}",
+                "I am coming {arrivalDate}"
+              ]
+            },
+            {
+              "name": "Duration",
+              "type": "AMAZON.DURATION",
+              "samples": [
+                "{Duration}",
+                "book for {Duration}",
+                "book room for {Duration}",
+                "I will be staying for {Duration}",
+                "for {Duration}"
+              ]
+            }
+          ],
+          "samples": [
+            "book a {roomType} room for {numberOfPeople} people for {Duration}",
+            "book room for {numberOfPeople} people",
+            "book me a {roomType} room",
+            "I need a room for {Duration}",
+            "book a room for {Duration}",
+            "make a room for me",
+            "i want to book a room",
+            "need a room",
+            "do you have rooms available",
+            "I need a place",
+            "make a hotel reservation",
+            "I want accommodation",
+            "book a room",
+            "book a room for me"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "vip",
+                "synonyms": [
+                  "hi class",
+                  "premium",
+                  "best",
+                  "luxury"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "standard",
+                "synonyms": [
+                  "ordinary",
+                  "regular",
+                  "normal"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "economy",
+                "synonyms": [
+                  "low",
+                  "basic",
+                  "budget",
+                  "cheap"
+                ]
+              }
+            }
+          ],
+          "name": "roomTypes"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "weatherIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "cityName",
+              "type": "AMAZON.City",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.898829544091.1553329670468"
+              }
+            }
+          ]
+        },
+        {
+          "name": "bookRoom",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "numberOfPeople",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.44432878514.322178852240"
+              }
+            },
+            {
+              "name": "roomType",
+              "type": "roomTypes",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.44432878514.378416068656"
+              }
+            },
+            {
+              "name": "arrivalDate",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.44432878514.1404518152983"
+              }
+            },
+            {
+              "name": "Duration",
+              "type": "AMAZON.DURATION",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.44432878514.1244556013203"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.898829544091.1553329670468",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "you want weather for what city"
+          },
+          {
+            "type": "PlainText",
+            "value": "where do you live"
+          },
+          {
+            "type": "PlainText",
+            "value": "please tell me your city name"
+          },
+          {
+            "type": "PlainText",
+            "value": "tell me your city name"
+          },
+          {
+            "type": "PlainText",
+            "value": "what is your city name"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.44432878514.322178852240",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "how many people do you wanna book for"
+          },
+          {
+            "type": "PlainText",
+            "value": "for how many people"
+          },
+          {
+            "type": "PlainText",
+            "value": "how many people?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.44432878514.378416068656",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please tell me type of room. we have economy, standard and luxury rooms."
+          },
+          {
+            "type": "PlainText",
+            "value": "what type of room would you like to book. we have economy, standard and luxury rooms."
+          },
+          {
+            "type": "PlainText",
+            "value": "What type of room would you like to reserve for {numberOfPeople} person. we have economy, standard and luxury rooms."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.44432878514.1404518152983",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please tell me when you are coming"
+          },
+          {
+            "type": "PlainText",
+            "value": "please tell me your checkin date"
+          },
+          {
+            "type": "PlainText",
+            "value": "when you are coming in our hotel"
+          },
+          {
+            "type": "PlainText",
+            "value": "What is your arrival date"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.44432878514.1244556013203",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "ok. {roomType} room for {numberOfPeople} people. how many days?"
+          },
+          {
+            "type": "PlainText",
+            "value": "book room for how many days"
+          },
+          {
+            "type": "PlainText",
+            "value": "for how many days would you like to stay"
+          },
+          {
+            "type": "PlainText",
+            "value": "for how many days you will be staying in our hotel"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "6"
+}
